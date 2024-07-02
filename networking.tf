@@ -28,6 +28,6 @@ resource "azurerm_subnet" "snet1" {
   name                 = "subnet-${count.index}"
   resource_group_name  = azurerm_key_vault.kv.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet1.name
-  address_prefixes     = ["10.0.${count.index}+1.0/24"]
+  address_prefixes     = lookup(element(var.subnet_prefix, count.index), "ip")
   service_endpoints    = ["Microsoft.Sql", "Microsoft.Storage"]
 }
