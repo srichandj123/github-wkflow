@@ -8,7 +8,7 @@ resource "azurerm_storage_account" "stgkv" {
   public_network_access_enabled = false
   network_rules {
     default_action             = "allow"
-    virtual_network_subnet_ids = [azurerm_subnet.snet1[0]]
+    virtual_network_subnet_ids = [azurerm_subnet.snet1[count.index]]
   }
   tags = local.tags
 }
