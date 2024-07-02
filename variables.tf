@@ -1,12 +1,17 @@
-variable "subnet_prefix" {
-  default = [
-    {
-      ip   = "10.0.1.0/24"
-      name = "subnet-1"
+variable "subnet_object" {
+  type = map(object({
+    name  = string
+    saddr = string
+  }))
+  default = {
+    "snet1" = {
+      name  = "subnet-1"
+      saddr = "10.0.1.0/24"
     },
-    {
-      ip   = "10.0.2.0/24"
-      name = "subnet-2"
+    snet2 = {
+      name  = "subnet-2"
+      saddr = "10.0.2.0/24"
     }
-  ]
+  }
+
 }

@@ -24,10 +24,10 @@ resource "azurerm_virtual_network" "vnet1" {
 
 #Subnet
 resource "azurerm_subnet" "snet1" {
-  count                = 2
-  name                 = "subnet-${count.index}"
+  for_each             = var.subnet_object
+  name                 = each.value.name
   resource_group_name  = azurerm_key_vault.kv.resource_group_name
   virtual_network_name = azurerm_virtual_network.vnet1.name
-  address_prefixes     = lookup(element(var.subnet_prefix, count.index), "ip")
+  address_prefixes     = [each.value.saddr]
   service_endpoints    = ["Microsoft.Sql", "Microsoft.Storage"]
 }

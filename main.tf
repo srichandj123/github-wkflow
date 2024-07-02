@@ -5,7 +5,6 @@ module "rg-keyvault" {
   rg_name = "github-wkflow-rg"
   tags    = local.tags
 }
-
 locals {
   tags = {
     Client      = "OCC"
