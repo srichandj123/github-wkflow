@@ -25,7 +25,7 @@ data "azurerm_client_config" "current" {}
 #Keyvault
 
 resource "azurerm_key_vault" "kv" {
-  name                = "jakk-key-vault"
+  name                = "jakk-key-vault99"
   location            = module.rg-keyvault.location
   resource_group_name = module.rg-keyvault.rg_name
   sku_name            = "standard"
