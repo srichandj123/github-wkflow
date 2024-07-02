@@ -14,6 +14,7 @@ locals {
   stgname = random_string.random.result
 }
 
+#randomstring
 resource "random_string" "random" {
   length  = 16
   special = false
