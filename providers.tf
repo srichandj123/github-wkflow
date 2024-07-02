@@ -3,7 +3,7 @@ terraform {
   cloud {
     organization = "jakka"
     workspaces {
-      name = ""
+      name = "github-wkflow"
     }
   }
   required_providers {
